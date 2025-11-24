@@ -8,7 +8,20 @@
 
 ## 🛡️ Descripción General
 
-**QualAna** es una herramienta desarrollada por **PatxaSec** para automatizar la extracción, normalización, conversión y carga de datos provenientes de múltiples APIs de **Qualys**.
+**QualAna** es una herramienta desarrollada para automatizar la extracción, normalización, conversión y carga de datos provenientes de múltiples APIs de Qualys.
+
+Una de sus funciones principales es proporcionar historización completa de los datos.
+Qualys, por defecto, solo permite consultar la información del último escaneo, lo que dificulta poder realizar análisis temporales, comparar tendencias, o investigar cambios en hosts, vulnerabilidades, inventario o políticas.
+
+Con QualAna, todos los datos descargados quedan almacenados de forma persistente en estructura JSON y, opcionalmente, enviados a Elasticsearch, lo que permite al analista:
+
+- Revisar datos de días anteriores
+- Comparar cambios entre escaneos
+- Detectar apariciones o desapariciones de vulnerabilidades
+- Analizar evolución del inventario de software
+- Auditar modificaciones en policies o usuarios
+
+Esto convierte a QualAna en una capa fundamental para disponer de histórico completo cuando la plataforma Qualys por sí sola no lo permite.
 
 El script descarga de forma automática información de:
 
