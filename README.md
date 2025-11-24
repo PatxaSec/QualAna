@@ -155,3 +155,79 @@ Clientes/               # Salida organizada por cliente
 * La API de inventario usa autenticación **JWT**, por lo que requiere conectividad hacia `gateway.qg2.apps.qualys.eu`
 * El script ignora advertencias SSL (`verify=False`) por diseño
 
+---
+
+# 🏗️ **Ejemplo de despliegue local con Docker (Elasticsearch + Kibana)**
+
+Si deseas usar QualAna con Elasticsearch en **localhost**, aquí tienes un ejemplo funcional con Docker.
+
+## 📄 `docker-compose.yml`
+
+```yaml
+version: '3.8'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - xpack.security.http.ssl.enabled=false
+      - ELASTIC_PASSWORD=elastic
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.15.0
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=kibana
+      - ELASTICSEARCH_PASSWORD=kibana_passwd
+      - SERVER_PUBLICBASEURL=http://localhost:5601
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+
+volumes:
+  es_data:
+
+networks:
+  elastic:
+    driver: bridge
+```
+
+---
+
+## 🛠️ Crear usuario Kibana en Elasticsearch
+
+Antes de que Kibana pueda autenticarse correctamente, necesitas crear el usuario `kibana` dentro del contenedor de Elasticsearch.
+
+### 1️⃣ Entra en el contenedor:
+
+```bash
+docker exec -it elasticsearch bash
+```
+
+### 2️⃣ Crea el usuario:
+
+```bash
+bin/elasticsearch-users useradd kibana -p kibana_passwd -r kibana_system
+```
+
+### 3️⃣ Reinicia los contenedores:
+
+```bash
+docker restart elasticsearch kibana
+```
+
+
