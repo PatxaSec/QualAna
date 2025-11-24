@@ -1,3 +1,7 @@
+
+<img width="800" height="800" alt="imagen" src="https://github.com/user-attachments/assets/193a752a-fc4b-48e1-89e6-686b6d77a66c" />
+
+
 # **QualAna – Qualys Analyzer**
 
 **Automatización completa de descarga, normalización y envío de datos de Qualys hacia Elasticsearch**
