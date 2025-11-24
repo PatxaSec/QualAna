@@ -160,6 +160,7 @@ Clientes/               # Salida organizada por cliente
 # 🏗️ **Ejemplo de despliegue local con Docker (Elasticsearch + Kibana)**
 
 Si deseas usar QualAna con Elasticsearch en **localhost**, aquí tienes un ejemplo funcional con Docker.
+Donde las credenciales de acceso vía web a kibana son `elastic`:`elastic`
 
 ## 📄 `docker-compose.yml`
 
