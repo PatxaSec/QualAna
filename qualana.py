@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# QualAna: Qualys Analyzer
+# Made By: PatxaSec
+
 import requests
 from requests.auth import HTTPBasicAuth
 import xml.etree.ElementTree as ET
@@ -16,6 +19,17 @@ import re
 
 csv.field_size_limit(1000000)
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+banner = '''
+       ___     _   _     _       _         _      _   _       _      
+      / " \ U |"|u| |U  /"\  u  |"|    U  /"\  u | \ |"|  U  /"\  u  
+     | |"| | \| |\| | \/ _ \/ U | | u   \/ _ \/ <|  \| |>  \/ _ \/   
+    /| |_| |\ | |_| | / ___ \  \| |/__  / ___ \ U| |\  |u  / ___ \   
+    U \__\_\u<<\___/ /_/   \_\  |_____|/_/   \_\ |_| \_|  /_/   \_\  
+       \\// (__) )(   \\    >>  //  \\  \\    >> ||   \\,-.\\    >>  
+      (_(__)    (__) (__)  (__)(_")("_)(__)  (__)(_")  (_/(__)  (__) 
+    By PatxaSec
+'''
 
 # ---------------------
 # Helpers de normalización
@@ -475,6 +489,7 @@ if __name__ == "__main__":
     parser.add_argument('--conf', default='qualys_cliente.conf', help='Archivo de configuración')
     args = parser.parse_args()
     config = configparser.ConfigParser()
+    print(banner)
     if not config.read(args.conf):
         print(f"[X] No se pudo leer {args.conf}")
         sys.exit(1)
