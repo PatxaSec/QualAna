@@ -106,24 +106,50 @@ python3 main.py -c All
 
 ---
 
-## 📦 Dependencias
+## 📦 **Dependencias**
 
-El script usa:
+El proyecto requiere:
 
-* Python 3.x
-* `requests`
-* `urllib3`
-* `xml.etree.ElementTree`
-* `csv`, `json`
+### **Python**
+
+* **Python 3.x** (recomendado 3.9+)
+
+### **Librerías estándar de Python** (incluidas, no requieren instalación)
+
 * `argparse`
 * `configparser`
+* `csv`
+* `json`
+* `os`
+* `sys`
+* `datetime`
+* `glob`
+* `re`
+* `base64`
+* `xml.etree.ElementTree`
 
-Instalación rápida:
+### **Librerías externas**
+
+Estas deben instalarse manualmente:
+
+* `requests`
+* `urllib3`
+
+---
+
+## ⚡ Instalación rápida
 
 ```bash
 pip3 install requests urllib3
 ```
 
+Opcional (si usas entorno virtual):
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install requests urllib3
+```
 ---
 
 ## 📁 Estructura interna del proyecto
