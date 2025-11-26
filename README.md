@@ -129,9 +129,33 @@ pip3 install requests urllib3
 ## 📁 Estructura interna del proyecto
 
 ```
-qualys_cliente.conf     # Archivo de configuración principal
-qualana.py              # Script principal
-Clientes/               # Salida organizada por cliente
+QualAna/
+│
+├── main.py
+├── qualys_cliente.conf
+│
+├── helpers/
+│   ├── __init__.py
+│   ├── normalize.py
+│   ├── csv_parser.py
+│
+├── elastic/
+│   ├── __init__.py
+│   ├── elastic_utils.py
+│   ├── elastic_upload.py
+│
+├── qualys/
+│   ├── __init__.py
+│   ├── posture.py
+│   ├── hosts.py
+│   ├── users.py
+│   ├── inventory.py
+│   ├── vulnerabilities.py
+│
+└── utils/
+    ├── __init__.py
+    ├── banner.py
+
 ```
 
 ---
