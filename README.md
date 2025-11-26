@@ -95,13 +95,13 @@ Puedes añadir tantos clientes como desees.
 #### ✔ Ejecutar para un solo cliente:
 
 ```bash
-python3 qualana.py -c Cliente1
+python3 main.py -c Cliente1
 ```
 
 #### ✔ Ejecutar para **todos los clientes** definidos:
 
 ```bash
-python3 qualana.py -c All
+python3 main.py -c All
 ```
 
 ---
