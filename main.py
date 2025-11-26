@@ -6,6 +6,7 @@ import argparse
 import configparser
 import sys
 import base64
+import urllib3
 from utils.banner import banner
 from qualys.hosts import host_list
 from qualys.users import qualys_users_list
@@ -13,6 +14,8 @@ from qualys.vulnerabilities import vulnerabilidades
 from qualys.inventory import inventario
 from qualys.posture import postura
 from elastic.elastic_upload import subir_a_elasticsearch
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Automatiza la descarga de datos de Qualys por cliente.')
